@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+PDF to Questionnaire Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project extracts form fields from a PDF (such as the OCF-1 form) and converts them into a web-based questionnaire. Users can upload a PDF file, view extracted form fields, and edit the values before generating a final JSON payload.
 
-## Available Scripts
+Prerequisites:
 
-In the project directory, you can run:
+Python 3.7+
+Node.js 14+ and npm (or yarn)
+Git (optional, but helpful for version control)
+Project Structure: project/ backend/ app.py requirements.txt frontend/ package.json public/ index.html src/ components/ Questionnaire.js services/ api.js App.js App.css ...
 
-### `npm start`
+Setup Instructions:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Clone the Repository (optional): If you have a GitHub repository for this project, you can clone it: git clone https://github.com/<your-username>/<your-repo-name>.git cd <your-repo-name>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+If you're already in your project directory, skip this step.
 
-### `npm test`
+Backend Setup: a. Create and activate a virtual environment: On Windows (using the py launcher): cd backend py -m venv venv
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+On Linux/macOS: cd backend python3 -m venv venv
 
-### `npm run build`
+Then activate it: For Git Bash or Linux/macOS: source venv/Scripts/activate or source venv/bin/activate
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+For Windows Command Prompt: venv\Scripts\activate
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+b. Install backend dependencies: pip install -r requirements.txt
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+c. Start the backend server: python app.py
 
-### `npm run eject`
+The Flask server should start at http://localhost:5000. If successful, you should see a message like:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Running on http://localhost:5000/ (Press CTRL+C to quit)
+Frontend Setup: Open a new terminal (keep the backend running):
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+a. Navigate to the frontend directory: cd ../frontend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+b. Install frontend dependencies: npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+c. Start the frontend development server: npm start
 
-## Learn More
+The frontend should start at http://localhost:3000. It may open automatically in your browser; if not, open it manually.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Using the Application: With both servers running (backend on http://localhost:5000 and frontend on http://localhost:3000): a. Open http://localhost:3000 in your browser. b. Click "Choose File" and select your PDF, then click "Upload". c. The backend processes the PDF and returns form fields. d. The fields display as a questionnaire. Edit values as needed. e. Click "Finish" to generate the final JSON payload (displayed in an alert).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Troubleshooting:
 
-### Code Splitting
+If you encounter a 500 error in the console: Check that the backend server is running. Check the backend terminal for errors. Verify that you are uploading a valid PDF file.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If the frontend does not load: Ensure that npm start is running without errors. Check the browser console for any warnings or errors.
 
-### Analyzing the Bundle Size
+Stopping the Servers:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To stop the backend server, press CTRL+C in the terminal running app.py.
+To stop the frontend server, press CTRL+C in the terminal running npm start.
+License: Include your chosen license information here, if applicable.
