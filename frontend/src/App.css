@@ -1,0 +1,40 @@
+.App {
+  text-align: center;
+}
+
+h1, h2 {
+  color: #61dafb;
+}
+
+form {
+  margin-top: 20px;
+  text-align: left;
+  display: inline-block;
+  max-width: 500px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  width: 400px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #61dafb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #4fa3d1;
+}
